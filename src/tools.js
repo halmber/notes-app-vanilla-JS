@@ -1,3 +1,4 @@
+import { STATUS } from "./index.js";
 import { notes } from "./notesData.js";
 import renderNoteRows from "./render/renderNoteRows.js";
 
@@ -9,7 +10,21 @@ export const getLocalStringDate = (date) => {
     });
 };
 
-export const createActionButtons = (id) => {
+export const createNoteCells = (note) => {
+    const tr = document.createElement("tr");
+
+    tr.insertCell().textContent = note.name;
+    tr.insertCell().textContent = getLocalStringDate(note.created);
+    tr.insertCell().textContent = note.category;
+    tr.insertCell().textContent = note.content;
+    tr.insertCell().textContent = note.dates.join(", ");
+    tr.insertCell().appendChild(createActionButtons(note.created));
+    tr.classList.add("note-row");
+
+    return tr;
+};
+
+const createActionButtons = (id) => {
     const td = document.createElement("td");
 
     const editImg = document.createElement("img");

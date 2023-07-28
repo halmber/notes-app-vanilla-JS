@@ -5,7 +5,7 @@ export let notes = [
         category: "Task",
         content: "Tomatoes, bread",
         dates: [],
-        archive: false,
+        status: "ARCHIVED",
     },
     {
         name: "Dentist",
@@ -14,7 +14,7 @@ export let notes = [
         content:
             "I'm gonna have a dentist appointment on the 3/5/2021, I moved it from 5/5/2021 the dates column is 3/5/2021, 5/5/2021",
         dates: ["3/5/2021", "5/5/2021"],
-        archive: false,
+        status: "ACTIVE",
     },
     {
         name: "Gym Workout",
@@ -22,7 +22,7 @@ export let notes = [
         category: "Random Thought",
         content: "Plan gym workout for tomorrow. Focus on cardio and core exercises.",
         dates: [],
-        archive: false,
+        status: "ARCHIVED",
     },
     {
         name: "Travel Ideas",
@@ -30,7 +30,7 @@ export let notes = [
         category: "Idea",
         content: "Research travel destinations for the next vacation. Consider beaches or mountains.",
         dates: [],
-        archive: false,
+        status: "ACTIVE",
     },
     {
         name: "Language Learning",
@@ -38,7 +38,7 @@ export let notes = [
         category: "Task",
         content: "Practice vocabulary and grammar in the target language. Watch language learning videos.",
         dates: [],
-        archive: false,
+        status: "ACTIVE",
     },
     {
         name: "Financial Planning",
@@ -46,7 +46,7 @@ export let notes = [
         category: "Plan",
         content: "Review monthly expenses and create a budget for the upcoming month.",
         dates: [],
-        archive: false,
+        status: "ACTIVE",
     },
     {
         name: "Project Ideas",
@@ -54,6 +54,6 @@ export let notes = [
         category: "Task",
         content: "Brainstorm new project ideas. Consider photography, painting, or writing.",
         dates: [],
-        archive: false,
+        status: "ACTIVE",
     },
 ];
