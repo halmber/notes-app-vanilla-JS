@@ -1,0 +1,41 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Tahoma, sans-serif;
+}
+
+table {
+    border-spacing: 0;
+    color: white;
+    font-size: 1rem;
+    border-spacing: 0 1em;
+}
+
+thead {
+    background-color: #999999;
+    border-radius: 10px;
+}
+
+tbody {
+    color: black;
+}
+
+td,
+th {
+    padding: 0.5rem;
+}
+
+.notes-action {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    filter: invert(99%) sepia(12%) saturate(61%) hue-rotate(295deg) brightness(116%) contrast(100%);
+    gap: 0.5rem;
+}
+
+.note-row {
+    background-color: #e8eaf5;
+    border-radius: 10px;
+}
