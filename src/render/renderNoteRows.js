@@ -1,5 +1,5 @@
 import { notes } from "../notesData.js";
-import { getLocalStringDate } from "../tools.js";
+import { createActionButtons, getLocalStringDate } from "../tools.js";
 
 const renderNoteRows = () => {
     const tableBody = document.querySelector("#notes-body");
@@ -15,7 +15,7 @@ const renderNoteRows = () => {
         tr.insertCell().textContent = item.dates.join(", ");
 
         //додати кнопки з екшенами
-        tr.insertCell();
+        tr.insertCell().appendChild(createActionButtons(item.created));
 
         tr.classList.add("note-row");
         tableBody.appendChild(tr);

@@ -39,3 +39,22 @@ th {
     background-color: #e8eaf5;
     border-radius: 10px;
 }
+
+/* .note-row .content-cell {
+    max-width: 4rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+} */
+
+.action-cell {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 0.5rem;
+    filter: invert(47%) sepia(0%) saturate(196%) hue-rotate(148deg) brightness(101%) contrast(86%);
+}
+
+.action-cell img:hover {
+    filter: invert(94%) sepia(1%) saturate(659%) hue-rotate(105deg) brightness(89%) contrast(92%);
+}
