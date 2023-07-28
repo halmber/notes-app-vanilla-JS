@@ -1,4 +1,4 @@
-import { STATUS } from "./index.js";
+import { currentStatus } from "./index.js";
 import { notes } from "./notesData.js";
 import renderNoteRows from "./render/renderNoteRows.js";
 
@@ -54,6 +54,6 @@ const deleteNote = (id) => {
     if (confirm("Are you sure you want to remove this note?")) {
         const index = notes.findIndex((note) => note.created === id);
         notes.splice(index, 1);
-        renderNoteRows();
+        renderNoteRows(currentStatus);
     }
 };

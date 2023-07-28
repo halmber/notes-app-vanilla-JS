@@ -2,7 +2,7 @@ import renderNoteRows from "./render/renderNoteRows.js";
 
 export const STATUS = { ACTIVE: "ACTIVE", ARCHIVED: "ARCHIVED" };
 
-let currentStatus = STATUS.ACTIVE;
+export let currentStatus = STATUS.ACTIVE;
 
 document.addEventListener("DOMContentLoaded", () => {
     renderNoteRows(currentStatus);
