@@ -1,4 +1,4 @@
-import { currentStatus } from "./index.js";
+import { STATUS, currentStatus } from "./index.js";
 import { notes } from "./notesData.js";
 import renderNoteRows from "./render/renderNoteRows.js";
 
@@ -35,7 +35,7 @@ const createActionButtons = (id) => {
     const archiveImg = document.createElement("img");
     archiveImg.src = "../src/assets/archive.svg";
     archiveImg.width = 18;
-    archiveImg.addEventListener("click", () => console.log("archive"));
+    archiveImg.addEventListener("click", () => archiveNote(id));
 
     const deleteImg = document.createElement("img");
     deleteImg.src = "../src/assets/delete.svg";
@@ -50,10 +50,23 @@ const createActionButtons = (id) => {
     return td;
 };
 
+export const prepareRender = () => {
+    let isArchivedVisbl = document.getElementById("is-archived");
+    isArchivedVisbl.style.visibility = isArchivedVisbl.style.visibility === "visible" ? "hidden" : "visible";
+};
+
 const deleteNote = (id) => {
     if (confirm("Are you sure you want to remove this note?")) {
         const index = notes.findIndex((note) => note.created === id);
         notes.splice(index, 1);
+        renderNoteRows(currentStatus);
+    }
+};
+
+const archiveNote = (id) => {
+    if (confirm("Are you sure you want to archive this note?")) {
+        const note = notes.find((note) => note.created === id);
+        note.status = STATUS.ARCHIVED;
         renderNoteRows(currentStatus);
     }
 };

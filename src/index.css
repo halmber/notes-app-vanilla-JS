@@ -1,11 +1,29 @@
 body {
-    font-family: Tahoma, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
 }
 
-.add-note {
+.action-panel {
     width: 100%;
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#add-note {
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s, color 0.3s;
+}
+#add-note:hover {
+    background-color: #999999;
+    color: white;
+}
+
+#is-archived {
+    visibility: hidden;
 }
 
 .container {
@@ -19,6 +37,7 @@ table {
     color: white;
     font-size: 1rem;
     border-spacing: 0 1em;
+    width: 100%;
 }
 
 thead {
@@ -32,7 +51,7 @@ tbody {
 
 td,
 th {
-    padding: 0.5rem;
+    padding: 10px;
 }
 
 #show-archived {
