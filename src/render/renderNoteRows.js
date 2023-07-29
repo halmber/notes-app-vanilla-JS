@@ -1,5 +1,5 @@
 import { notes } from "../notesData.js";
-import { createNoteCells } from "../tools.js";
+import { createNoteCells } from "./createElements.js";
 
 const renderNoteRows = (status) => {
     const tableBody = document.querySelector("#notes-body");

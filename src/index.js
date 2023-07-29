@@ -1,5 +1,6 @@
+import { addNote } from "./noteActions.js";
 import renderNoteRows from "./render/renderNoteRows.js";
-import { addNote, closeModal, openModal, prepareRender } from "./tools.js";
+import { closeModal, openModal, prepareRender } from "./tools.js";
 
 export const STATUS = { ACTIVE: "ACTIVE", ARCHIVED: "ARCHIVED" };
 
