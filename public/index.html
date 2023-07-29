@@ -28,6 +28,23 @@
                 <tbody id="notes-body"></tbody>
             </table>
             <table id="summary"></table>
+            <form id="modal">
+                <h4 style="margin: 0.5rem">Add note</h4>
+                <div>
+                    <input type="text" name="name" placeholder="Name" />
+                    <select name="category">
+                        <option value="">Select category</option>
+                        <option value="Task">Task</option>
+                        <option value="Idea">Idea</option>
+                        <option value="Random Thought">Random Thought</option>
+                        <option value="Plan">Plan</option>
+                    </select>
+                </div>
+
+                <textarea type="text" name="content" placeholder="Content" rows="5"></textarea>
+                <button type="submit">Submit</button>
+                <button type="button" id="close-modal">Cancel</button>
+            </form>
         </div>
         <script src="../src/index.js" type="module"></script>
     </body>

@@ -10,14 +10,14 @@ body {
     align-items: center;
 }
 
-#add-note {
+button {
     cursor: pointer;
     border: none;
     border-radius: 5px;
     padding: 0.5rem 1rem;
     transition: background-color 0.3s, color 0.3s;
 }
-#add-note:hover {
+button:hover {
     background-color: #999999;
     color: white;
 }
@@ -27,7 +27,7 @@ body {
 }
 
 .container {
-    max-width: 50rem;
+    max-width: 60rem;
     width: 100%;
     margin: 0 auto;
 }
@@ -84,4 +84,42 @@ th {
 
 .action-cell img:hover {
     filter: invert(85%) sepia(100%) saturate(2%) hue-rotate(67deg) brightness(104%) contrast(101%);
+}
+
+#modal {
+    min-width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 5rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#modal.active {
+    opacity: 1;
+}
+
+#modal textarea,
+#modal input,
+#modal select {
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    padding: 10px;
+}
+
+#modal textarea {
+    width: 100%;
+    resize: none;
+    margin-top: 0.5rem;
+}
+
+#modal div {
+    display: flex;
+    justify-content: space-between;
 }

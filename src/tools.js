@@ -3,10 +3,12 @@ import { notes } from "./notesData.js";
 import renderNoteRows from "./render/renderNoteRows.js";
 
 export const getLocalStringDate = (date) => {
-    return new Date(date).toLocaleString("en-us", {
+    return new Date(date).toLocaleString("en-GB", {
         month: "short",
         day: "numeric",
         year: "numeric",
+        hour: "numeric",
+        minute: "numeric",
     });
 };
 
@@ -35,7 +37,13 @@ const createActionButtons = (id) => {
     const archiveImg = document.createElement("img");
     archiveImg.src = "../src/assets/archive.svg";
     archiveImg.width = 18;
-    archiveImg.addEventListener("click", () => archiveNote(id));
+    if (currentStatus === STATUS.ACTIVE) {
+        archiveImg.title = "Archive note";
+        archiveImg.addEventListener("click", () => archiveNote(id));
+    } else if (currentStatus === STATUS.ARCHIVED) {
+        archiveImg.title = "Unarchive note";
+        archiveImg.addEventListener("click", () => unArchiveNote(id));
+    }
 
     const deleteImg = document.createElement("img");
     deleteImg.src = "../src/assets/delete.svg";
@@ -68,5 +76,43 @@ const archiveNote = (id) => {
         const note = notes.find((note) => note.created === id);
         note.status = STATUS.ARCHIVED;
         renderNoteRows(currentStatus);
+    }
+};
+
+const unArchiveNote = (id) => {
+    if (confirm("Are you sure you want to unarchive this note?")) {
+        const note = notes.find((note) => note.created === id);
+        note.status = STATUS.ACTIVE;
+        renderNoteRows(currentStatus);
+    }
+};
+
+export const openModal = (noteForm) => {
+    noteForm.classList.add("active");
+};
+
+export const closeModal = (noteForm) => {
+    noteForm.classList.remove("active");
+    setTimeout(() => {
+        noteForm.reset();
+    }, 400);
+};
+
+export const addNote = (e, noteForm) => {
+    e.preventDefault();
+
+    const name = e.target.elements.name.value;
+    const category = e.target.elements.category.value;
+    const content = e.target.elements.content.value;
+
+    if (name && category && content) {
+        const created = new Date().getTime();
+        const status = STATUS.ACTIVE;
+        const dates = [];
+
+        notes.unshift({ name, created, category, content, dates, status });
+
+        renderNoteRows(currentStatus);
+        closeModal(noteForm);
     }
 };
