@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./src/index.css" />
+        <title>Notes</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Notes app - vanilla JS</h1>
+            <div class="action-panel">
+                <h2 id="is-archived">Archived notes</h2>
+                <button id="add-note">Add note</button>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th align="left">Name</th>
+                        <th align="left">Created</th>
+                        <th align="left">Category</th>
+                        <th align="left">Content</th>
+                        <th align="left">Dates</th>
+                        <th align="center">
+                            <img
+                                id="show-archived"
+                                src="./src/assets/archive.svg"
+                                alt="Archive"
+                                width="18px"
+                                title="Show archived notes"
+                            />
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="notes-body"></tbody>
+            </table>
+            <h2>Summary</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th align="left">Note category</th>
+                        <th align="left">Active</th>
+                        <th align="left">Archived</th>
+                    </tr>
+                </thead>
+                <tbody id="summary-body"></tbody>
+            </table>
+            <form id="modal">
+                <h2 style="margin: 0.5rem">Add note</h2>
+                <div>
+                    <input type="text" name="name" placeholder="Name" />
+                    <select name="category">
+                        <option value="">Select category</option>
+                        <option value="Task">Task</option>
+                        <option value="Idea">Idea</option>
+                        <option value="Random Thought">Random Thought</option>
+                        <option value="Plan">Plan</option>
+                    </select>
+                </div>
+
+                <textarea type="text" name="content" placeholder="Content" rows="5"></textarea>
+                <button type="submit">Submit</button>
+                <button type="button" id="close-modal">Cancel</button>
+            </form>
+        </div>
+        <script src="./src/index.js" type="module"></script>
+    </body>
+</html>
