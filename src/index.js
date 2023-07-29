@@ -1,13 +1,16 @@
 import renderNoteRows from "./render/renderNoteRows.js";
-import { closeModal, handleSubmit, openModal, prepareRender } from "./tools.js";
+import renderSummaryRows from "./render/renderSummaryRows.js";
+import { closeModal, getAllCategory, handleSubmit, openModal, prepareRender } from "./tools.js";
 
 export const STATUS = { ACTIVE: "ACTIVE", ARCHIVED: "ARCHIVED" };
 export const SUBMIT_ACTION = { EDIT: "EDIT", ADD: "ADD" };
 
 export let currentStatus = STATUS.ACTIVE;
+export const allCategory = getAllCategory();
 
 document.addEventListener("DOMContentLoaded", () => {
     renderNoteRows(currentStatus);
+    renderSummaryRows(allCategory);
 });
 
 const showArchivedBtn = document.querySelector("#show-archived");

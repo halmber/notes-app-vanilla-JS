@@ -1,6 +1,8 @@
-import { SUBMIT_ACTION, noteForm } from "./index.js";
+import { SUBMIT_ACTION, allCategory, currentStatus, noteForm } from "./index.js";
 import { addNote, editNote } from "./noteActions.js";
 import { notes } from "./notesData.js";
+import renderNoteRows from "./render/renderNoteRows.js";
+import renderSummaryRows from "./render/renderSummaryRows.js";
 
 export const getLocalStringDate = (date) => {
     return new Date(date).toLocaleString("en-GB", {
@@ -14,6 +16,11 @@ export const getLocalStringDate = (date) => {
 
 export const getDatesFromContent = (content) => {
     return [...new Set(content.match(/\d{1,2}([\/.-])\d{1,2}\1\d{2,4}/g))];
+};
+
+export const reRenderTables = () => {
+    renderNoteRows(currentStatus);
+    renderSummaryRows(allCategory);
 };
 
 export const prepareRender = () => {
@@ -54,4 +61,21 @@ export const handleSubmit = (e) => {
     } else if (submitAction === SUBMIT_ACTION.EDIT) {
         editNote(e);
     }
+    reRenderTables();
+};
+
+export const getAllCategory = () => {
+    const category = new Set(notes.map((note) => note.category));
+    return category;
+};
+
+export const getCountOfCategory = (category, status) => {
+    const count = notes.reduce((accumulator, current) => {
+        if (current.category === category && current.status === status) {
+            return accumulator + 1;
+        } else {
+            return accumulator;
+        }
+    }, 0);
+    return count;
 };

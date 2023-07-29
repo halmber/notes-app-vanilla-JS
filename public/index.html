@@ -8,11 +8,12 @@
     </head>
     <body>
         <div class="container">
+            <h1>Notes app - vanilla JS</h1>
             <div class="action-panel">
-                <h4 id="is-archived">Archived notes</h4>
+                <h2 id="is-archived">Archived notes</h2>
                 <button id="add-note">Add note</button>
             </div>
-            <table id="notes">
+            <table>
                 <thead>
                     <tr>
                         <th align="left">Name</th>
@@ -21,15 +22,31 @@
                         <th align="left">Content</th>
                         <th align="left">Dates</th>
                         <th align="center">
-                            <img id="show-archived" src="../src/assets/archive.svg" alt="Archive" width="18px" />
+                            <img
+                                id="show-archived"
+                                src="../src/assets/archive.svg"
+                                alt="Archive"
+                                width="18px"
+                                title="Show archived notes"
+                            />
                         </th>
                     </tr>
                 </thead>
                 <tbody id="notes-body"></tbody>
             </table>
-            <table id="summary"></table>
+            <h2>Summary</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th align="left">Note category</th>
+                        <th align="left">Active</th>
+                        <th align="left">Archived</th>
+                    </tr>
+                </thead>
+                <tbody id="summary-body"></tbody>
+            </table>
             <form id="modal">
-                <h4 style="margin: 0.5rem">Add note</h4>
+                <h2 style="margin: 0.5rem">Add note</h2>
                 <div>
                     <input type="text" name="name" placeholder="Name" />
                     <select name="category">

@@ -44,8 +44,8 @@ export let notes = [
         name: "Financial Planning",
         created: 1690485198699,
         category: "Plan",
-        content: "Review monthly expenses and create a budget for the upcoming month.",
-        dates: [],
+        content: "Review monthly expenses and create a budget for the next month by 31.07.23",
+        dates: ["31.07.23"],
         status: "ACTIVE",
     },
     {

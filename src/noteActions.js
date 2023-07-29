@@ -1,14 +1,13 @@
-import { STATUS, currentStatus, noteForm } from "./index.js";
+import { STATUS, noteForm } from "./index.js";
 import { notes } from "./notesData.js";
-import renderNoteRows from "./render/renderNoteRows.js";
-import { closeModal, getDatesFromContent } from "./tools.js";
+import { closeModal, getDatesFromContent, reRenderTables } from "./tools.js";
 
 export const deleteNote = (id) => {
     if (confirm("Are you sure you want to remove this note?")) {
         const index = notes.findIndex((note) => note.created === id);
         if (index !== -1) {
             notes.splice(index, 1);
-            renderNoteRows(currentStatus);
+            reRenderTables();
         }
     }
 };
@@ -19,7 +18,7 @@ export const handleArchive = (id, status) => {
     if (confirm(`Are you sure you want to ${actionName} this note?`)) {
         const note = notes.find((note) => note.created === id);
         note.status = status === STATUS.ACTIVE ? STATUS.ARCHIVED : STATUS.ACTIVE;
-        renderNoteRows(currentStatus);
+        reRenderTables();
     }
 };
 
@@ -35,7 +34,6 @@ export const addNote = () => {
 
         notes.unshift({ name, created, category, content, dates, status });
 
-        renderNoteRows(currentStatus);
         closeModal(noteForm);
     }
 };
@@ -59,7 +57,6 @@ export const editNote = () => {
             note.status = status;
             note.dates = dates;
 
-            renderNoteRows(currentStatus);
             closeModal(noteForm);
         }
     }

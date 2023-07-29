@@ -1,6 +1,6 @@
 import { STATUS, currentStatus } from "../index.js";
 import { deleteNote, handleArchive } from "../noteActions.js";
-import { getLocalStringDate, handleEdit } from "../tools.js";
+import { getCountOfCategory, getLocalStringDate, handleEdit } from "../tools.js";
 
 export const createNoteCells = (note) => {
     const tr = document.createElement("tr");
@@ -12,6 +12,16 @@ export const createNoteCells = (note) => {
     tr.insertCell().textContent = note.dates.join(", ");
     tr.insertCell().appendChild(createActionButtons(note.created));
     tr.classList.add("note-row");
+
+    return tr;
+};
+
+export const createSummaryCells = (category) => {
+    const tr = document.createElement("tr");
+
+    tr.insertCell().textContent = category;
+    tr.insertCell().textContent = getCountOfCategory(category, STATUS.ACTIVE);
+    tr.insertCell().textContent = getCountOfCategory(category, STATUS.ARCHIVED);
 
     return tr;
 };

@@ -16,7 +16,9 @@ button {
     border-radius: 5px;
     padding: 0.5rem 1rem;
     transition: background-color 0.3s, color 0.3s;
+    font-size: 1rem;
 }
+
 button:hover {
     background-color: #999999;
     color: white;
@@ -42,7 +44,6 @@ table {
 
 thead {
     background-color: #999999;
-    border-radius: 10px;
 }
 
 tbody {
@@ -51,7 +52,21 @@ tbody {
 
 td,
 th {
-    padding: 10px;
+    padding: 0.625rem;
+}
+
+th:first-child,
+td:first-child {
+    border-radius: 5px 0 0 5px;
+}
+th:last-child,
+td:last-child {
+    border-radius: 0 5px 5px 0;
+}
+
+h2,
+h1 {
+    margin: 0;
 }
 
 #show-archived {
@@ -64,15 +79,8 @@ th {
 
 .note-row {
     background-color: #e8eaf5;
-    border-radius: 10px;
+    border-radius: 0.625rem;
 }
-
-/* .note-row .content-cell {
-    max-width: 4rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-} */
 
 .action-cell {
     display: flex;
@@ -114,10 +122,17 @@ th {
     padding: 10px;
 }
 
+textarea,
+input,
+select {
+    font-size: 1rem;
+}
+
 #modal textarea {
     width: 100%;
     resize: none;
     margin-top: 0.5rem;
+    overflow: auto;
 }
 
 #modal div {
