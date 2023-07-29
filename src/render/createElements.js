@@ -30,12 +30,12 @@ const createActionButtons = (id) => {
     const td = document.createElement("td");
 
     const editImg = document.createElement("img");
-    editImg.src = "../src/assets/edit.svg";
+    editImg.src = "./src/assets/edit.svg";
     editImg.width = 25;
     editImg.addEventListener("click", () => handleEdit(id));
 
     const archiveImg = document.createElement("img");
-    archiveImg.src = "../src/assets/archive.svg";
+    archiveImg.src = "./src/assets/archive.svg";
     archiveImg.width = 18;
     if (currentStatus === STATUS.ACTIVE) {
         archiveImg.title = "Archive note";
@@ -46,7 +46,7 @@ const createActionButtons = (id) => {
     }
 
     const deleteImg = document.createElement("img");
-    deleteImg.src = "../src/assets/delete.svg";
+    deleteImg.src = "./src/assets/delete.svg";
     deleteImg.width = 25;
     deleteImg.addEventListener("click", () => deleteNote(id));
 
