@@ -1,8 +1,8 @@
-import { addNote } from "./noteActions.js";
 import renderNoteRows from "./render/renderNoteRows.js";
-import { closeModal, openModal, prepareRender } from "./tools.js";
+import { closeModal, handleSubmit, openModal, prepareRender } from "./tools.js";
 
 export const STATUS = { ACTIVE: "ACTIVE", ARCHIVED: "ARCHIVED" };
+export const SUBMIT_ACTION = { EDIT: "EDIT", ADD: "ADD" };
 
 export let currentStatus = STATUS.ACTIVE;
 
@@ -18,11 +18,11 @@ showArchivedBtn.addEventListener("click", () => {
 });
 
 const addNoteBtn = document.querySelector("#add-note");
-const noteForm = document.querySelector("#modal");
+export const noteForm = document.querySelector("#modal");
 const canselAddNoteBtn = document.querySelector("#close-modal");
 
 addNoteBtn.addEventListener("click", () => {
-    openModal(noteForm);
+    openModal(noteForm, SUBMIT_ACTION.ADD);
 });
 
 canselAddNoteBtn.addEventListener("click", () => {
@@ -30,5 +30,5 @@ canselAddNoteBtn.addEventListener("click", () => {
 });
 
 noteForm.addEventListener("submit", (e) => {
-    addNote(e, noteForm);
+    handleSubmit(e);
 });

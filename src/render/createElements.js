@@ -1,6 +1,6 @@
 import { STATUS, currentStatus } from "../index.js";
-import { archiveNote, deleteNote, unArchiveNote } from "../noteActions.js";
-import { getLocalStringDate } from "../tools.js";
+import { deleteNote, handleArchive } from "../noteActions.js";
+import { getLocalStringDate, handleEdit } from "../tools.js";
 
 export const createNoteCells = (note) => {
     const tr = document.createElement("tr");
@@ -22,17 +22,17 @@ const createActionButtons = (id) => {
     const editImg = document.createElement("img");
     editImg.src = "../src/assets/edit.svg";
     editImg.width = 25;
-    editImg.addEventListener("click", () => console.log("edit"));
+    editImg.addEventListener("click", () => handleEdit(id));
 
     const archiveImg = document.createElement("img");
     archiveImg.src = "../src/assets/archive.svg";
     archiveImg.width = 18;
     if (currentStatus === STATUS.ACTIVE) {
         archiveImg.title = "Archive note";
-        archiveImg.addEventListener("click", () => archiveNote(id));
+        archiveImg.addEventListener("click", () => handleArchive(id, STATUS.ACTIVE));
     } else if (currentStatus === STATUS.ARCHIVED) {
         archiveImg.title = "Unarchive note";
-        archiveImg.addEventListener("click", () => unArchiveNote(id));
+        archiveImg.addEventListener("click", () => handleArchive(id, STATUS.ARCHIVED));
     }
 
     const deleteImg = document.createElement("img");
