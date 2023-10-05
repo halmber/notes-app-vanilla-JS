@@ -1,4 +1,4 @@
-# README for Notes App
+# Vanilla JS Notes App
 
 This repository contains a simple Notes App built using HTML, CSS, and JavaScript (vanilla). The app allows you to create, edit, archive, and manage notes. Below, you'll find an overview of the project structure and functionality.
 
